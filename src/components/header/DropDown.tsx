@@ -1,6 +1,6 @@
 ﻿import { Button } from "antd";
 import AngleIcon from "./AngleIcon";
-import { useState, useEffect, useRef, SyntheticEvent } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Dropdown.css";
 
 const data = [

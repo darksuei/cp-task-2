@@ -9,7 +9,8 @@ interface Props extends Candidate {
 }
 
 const CandidateCard = (candidate: Props) => {
-  const { firstName, lastName, age, address, active } = candidate;
+  const { firstName, lastName, age, address, active, university, company } =
+    candidate;
   const [checked, setChecked] = useState(active);
 
   useEffect(() => {
@@ -34,27 +35,31 @@ const CandidateCard = (candidate: Props) => {
             <h3>{firstName + " " + lastName}</h3>
             <h6>{address.address}</h6>
             <p>
-              Bachelor - {address.city} University {"(2023 - 2023)"}
+              Bachelor - {university} {"(2019 - 2023)"}
             </p>
 
             <div className="hash-tags">
               <p>#{"top_candidate"}</p>
-              <p>#{"top_candidate"}</p>
+              <p>#{"professional"}</p>
             </div>
 
             <div className="efres">
-              <div className="placement-tag">New York</div>
-              <div className="placement-tag">Marketing</div>
-              <div className="placement-tag">London</div>
+              <div className="placement-tag">{address.city || "New York"}</div>
+              <div className="placement-tag">
+                {company.department || "Marketing"}
+              </div>
+              <div className="placement-tag">
+                {company.address.city || "London"}
+              </div>
             </div>
           </div>
         </div>
-        {age < 35 && (
+        {age < 37 && (
           <div className="achievements">
             <div>
               <div>
                 <PlayCircleOutlined />
-                <p>{4}</p>
+                <p>{Math.round(Math.random() * 4) + 1}</p>
               </div>
               <div>
                 <ProfileOutlined />

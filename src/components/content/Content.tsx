@@ -13,14 +13,16 @@ const Content = () => {
       return 0;
     } else {
       return candidates.reduce(
-        (total, item) => (total += item.age > 35 ? 1 : 0),
+        (total, item) => (total += item.age > 30 ? 1 : 0),
         0
       );
     }
   }, [candidates]);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/users")
+    const skip = Math.round(Math.random() * 30);
+    skip < 15 ? skip + 10 : skip;
+    fetch(`https://dummyjson.com/users?skip=${skip}&limit=90`)
       .then((res) => res.json())
       .then((data) => setCandidates(data.users))
       .catch((error) => console.log(error));
