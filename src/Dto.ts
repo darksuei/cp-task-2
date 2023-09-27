@@ -17,6 +17,6 @@ export interface Address {
 }
 
 export interface AppContextType {
-  appState: any;
-  setAppState: React.Dispatch<React.SetStateAction<any>>;
+  query: any;
+  setQuery: React.Dispatch<React.SetStateAction<any>>;
 }

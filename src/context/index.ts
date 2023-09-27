@@ -2,8 +2,8 @@ import { createContext } from "react";
 import { AppContextType } from "../Dto";
 
 const initialState: AppContextType = {
-  appState: {},
-  setAppState: () => {},
+  query: {},
+  setQuery: () => {},
 };
 
 export const AppContext = createContext(initialState);

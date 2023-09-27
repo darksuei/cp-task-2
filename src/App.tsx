@@ -6,9 +6,9 @@ import { AppContext } from "./context";
 import { useState } from "react";
 
 const App = () => {
-  const [appState, setAppState] = useState<any>(null);
+  const [query, setQuery] = useState<string>("");
   return (
-    <AppContext.Provider value={{ appState, setAppState }}>
+    <AppContext.Provider value={{ query, setQuery }}>
       <Layout>
         <Header />
         <div className="content-section light-scroll-bar">

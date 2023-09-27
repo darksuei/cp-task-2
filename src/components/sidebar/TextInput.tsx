@@ -10,30 +10,18 @@ interface Props {
 }
 
 const TextInput = (props: Props) => {
-  const { appState, setAppState } = useContext(AppContext);
-  const handleQuery = (e: any) => {
-    if (appState) {
-      setAppState((prev: any) => {
-        return prev.filter((candidate: any) => {
-          for (let key in Object.keys(candidate)) {
-            if (
-              typeof candidate[key] === "string" &&
-              candidate[key]
-                .toLowerCase()
-                .includes(e.target.value.toLowerCase())
-            ) {
-              return true;
-            }
-          }
-        });
-      });
-    }
+  const { setQuery } = useContext(AppContext);
+
+  const handleQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.onChange(e);
+    setQuery(e.target.value);
   };
+
   return (
     <Input
       value={props.value}
       placeholder={props.placeholder}
-      onChange={props.onChange}
+      onChange={handleQuery}
       className="input"
       prefix={<SearchOutlined className="site-form-item-icon" />}
       suffix={
