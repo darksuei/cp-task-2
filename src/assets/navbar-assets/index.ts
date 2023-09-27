@@ -1,4 +1,5 @@
 ﻿import House from "./Navigation/House_01.svg";
+import Blank from "./Navigation/Blank.svg";
 import Users_Group from "./User/Users_Group.svg";
 import Users_Close from "./User/User_Close.svg";
 import Users_Check from "./User/User_Check.svg";
@@ -14,18 +15,19 @@ import Tag from "./Interface/Tag.svg";
 import Chevron_Right from "./Arrow/Chevron_Right_MD.svg";
 
 export {
-	House,
-	Users_Group,
-	Users_Close,
-	Users_Check,
-	Users_Voice,
-	CalenderCheck,
-	Share_Android,
-	Mail,
-	File_Document,
-	Notebook,
-	Heart,
-	Settings,
-	Chevron_Right,
-	Tag,
+  House,
+  Blank,
+  Users_Group,
+  Users_Close,
+  Users_Check,
+  Users_Voice,
+  CalenderCheck,
+  Share_Android,
+  Mail,
+  File_Document,
+  Notebook,
+  Heart,
+  Settings,
+  Chevron_Right,
+  Tag,
 };
