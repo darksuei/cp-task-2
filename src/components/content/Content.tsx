@@ -7,7 +7,7 @@ import { Candidate } from "../../Dto";
 import { AppContext } from "../../context";
 
 const Content = () => {
-  const { query, setQuery } = useContext(AppContext);
+  const { query } = useContext(AppContext);
   const [candidates, setCandidates] = useState<Candidate[]>([]);
   const [checkedAll, setCheckedAll] = useState(false);
   const [countDisqualified, setCountDisqualified] = useState(0);
