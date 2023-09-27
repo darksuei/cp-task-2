@@ -2,7 +2,13 @@
 
 const HeaderIcon = (props: ImgHTMLAttributes<HTMLImageElement>) => {
   return (
-    <a href="#" className="header-icon">
+    <a
+      href="#"
+      onClick={() => {
+        alert("Comming Soon");
+      }}
+      className="header-icon"
+    >
       <img {...props} />
     </a>
   );

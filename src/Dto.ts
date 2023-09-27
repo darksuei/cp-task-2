@@ -15,3 +15,8 @@ export interface Address {
   address: string;
   city: string;
 }
+
+export interface AppContextType {
+  appState: any;
+  setAppState: React.Dispatch<React.SetStateAction<any>>;
+}

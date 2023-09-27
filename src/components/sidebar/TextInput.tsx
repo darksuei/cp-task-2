@@ -1,6 +1,7 @@
 ﻿import { InfoCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import { Input, Tooltip } from "antd";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useContext } from "react";
+import { AppContext } from "../../context";
 
 interface Props {
   value: string;
@@ -9,6 +10,25 @@ interface Props {
 }
 
 const TextInput = (props: Props) => {
+  const { appState, setAppState } = useContext(AppContext);
+  const handleQuery = (e: any) => {
+    if (appState) {
+      setAppState((prev: any) => {
+        return prev.filter((candidate: any) => {
+          for (let key in Object.keys(candidate)) {
+            if (
+              typeof candidate[key] === "string" &&
+              candidate[key]
+                .toLowerCase()
+                .includes(e.target.value.toLowerCase())
+            ) {
+              return true;
+            }
+          }
+        });
+      });
+    }
+  };
   return (
     <Input
       value={props.value}

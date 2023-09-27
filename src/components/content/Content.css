@@ -175,3 +175,6 @@
     stroke-dashoffset: -124;
   }
 }
+.pointer {
+  cursor: pointer;
+}

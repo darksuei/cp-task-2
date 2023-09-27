@@ -58,11 +58,11 @@ const CandidateCard = (candidate: Props) => {
         {age > 40 && (
           <div className="achievements">
             <div>
-              <div>
+              <div className="pointer">
                 <PlayCircleOutlined />
                 <p>{Math.round(Math.random() * 4) + 1}</p>
               </div>
-              <div>
+              <div className="pointer">
                 <ProfileOutlined />
                 <p>Programs</p>
               </div>
