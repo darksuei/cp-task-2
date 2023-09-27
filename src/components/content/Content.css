@@ -178,3 +178,9 @@
 .pointer {
   cursor: pointer;
 }
+.space {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 14px 0;
+}

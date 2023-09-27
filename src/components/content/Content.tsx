@@ -1,5 +1,5 @@
 ﻿import { useState, useEffect, useContext } from "react";
-import { Checkbox, Divider } from "antd";
+import { Checkbox, Divider, Pagination } from "antd";
 import "./Content.css";
 import CandidateCard from "./CandidateCard";
 import Loading from "./Loading";
@@ -8,9 +8,13 @@ import { AppContext } from "../../context";
 
 const Content = () => {
   const { query } = useContext(AppContext);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const [candidates, setCandidates] = useState<Candidate[]>([]);
   const [checkedAll, setCheckedAll] = useState(false);
   const [countDisqualified, setCountDisqualified] = useState(0);
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
 
   const handleQueryLength = (candidates: any) => {
     const currCandidates = candidates.filter(
@@ -94,19 +98,33 @@ const Content = () => {
       </div>
 
       {candidates.length > 0 ? (
-        candidates
-          .filter(
-            (candidate: any) =>
-              candidate.firstName.toLowerCase().includes(query) ||
-              candidate.lastName.toLowerCase().includes(query)
-          )
-          .map((candidate: any) => (
-            <CandidateCard
-              key={candidate.id}
-              {...candidate}
-              active={checkedAll}
+        <>
+          {candidates
+            .filter(
+              (candidate: any) =>
+                candidate.firstName.toLowerCase().includes(query) ||
+                candidate.lastName.toLowerCase().includes(query)
+            )
+            .slice(startIndex, endIndex)
+            .map((candidate: any) => (
+              <CandidateCard
+                key={candidate.id}
+                {...candidate}
+                active={checkedAll}
+              />
+            ))}
+          <div className="space">
+            <Pagination
+              current={currentPage}
+              pageSize={query ? 100 : pageSize}
+              total={candidates.length}
+              onChange={(page, pageSize) => {
+                setCurrentPage(page);
+                setPageSize(pageSize);
+              }}
             />
-          ))
+          </div>
+        </>
       ) : (
         <Loading />
       )}

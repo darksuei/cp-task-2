@@ -38,26 +38,25 @@
   height: 100%;
   overflow-y: auto;
 }
-@media (minwidth: 768px) {
-  .light-scroll-bar {
-    scrollbar-width: 8px;
-  }
-  .light-scroll-bar::-webkit-scrollbar {
-    width: 8px;
-  }
-  .light-scroll-bar::-webkit-scrollbar-thumb {
-    background-color: #1d5ecd;
-    border-radius: 10px;
-  }
 
-  .vanish-scroll-bar::-webkit-scrollbar {
-    width: 0em;
-  }
-  .vanish-scroll-bar::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0);
-  }
+.light-scroll-bar {
+  scrollbar-width: 8px;
+}
+.light-scroll-bar::-webkit-scrollbar {
+  width: 8px;
+}
+.light-scroll-bar::-webkit-scrollbar-thumb {
+  background-color: #1d5ecd;
+  border-radius: 10px;
+}
 
-  .vanish-scroll-bar {
-    scrollbar-width: none;
-  }
+.vanish-scroll-bar::-webkit-scrollbar {
+  width: 0em;
+}
+.vanish-scroll-bar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.vanish-scroll-bar {
+  scrollbar-width: none;
 }
