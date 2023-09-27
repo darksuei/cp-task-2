@@ -12,6 +12,7 @@ const CandidateCard = (candidate: Props) => {
   const { firstName, lastName, age, address, active, university, company } =
     candidate;
   const [checked, setChecked] = useState(active);
+  const year = Math.round(Math.random() * 10) + 2008;
 
   useEffect(() => {
     setChecked(active);
@@ -35,12 +36,12 @@ const CandidateCard = (candidate: Props) => {
             <h3>{firstName + " " + lastName}</h3>
             <h6>{address.address}</h6>
             <p>
-              Bachelor - {university} {"(2019 - 2023)"}
+              Bachelor - {university} {year + " - " + (year + 5)}
             </p>
 
             <div className="hash-tags">
               <p>#{"top_candidate"}</p>
-              <p>#{"professional"}</p>
+              <p>#{year > 2014 ? "graduate" : "professional"}</p>
             </div>
 
             <div className="efres">
@@ -54,7 +55,7 @@ const CandidateCard = (candidate: Props) => {
             </div>
           </div>
         </div>
-        {age < 37 && (
+        {age > 40 && (
           <div className="achievements">
             <div>
               <div>

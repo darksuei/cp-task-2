@@ -2,6 +2,7 @@
 import { Checkbox, Divider } from "antd";
 import "./Content.css";
 import CandidateCard from "./CandidateCard";
+import Loading from "./Loading";
 import { Candidate } from "../../Dto";
 
 const Content = () => {
@@ -57,14 +58,17 @@ const Content = () => {
         </div>
       </div>
 
-      {candidates.length > 0 &&
+      {candidates.length > 0 ? (
         candidates.map((candidate) => (
           <CandidateCard
             key={candidate.id}
             {...candidate}
             active={checkedAll}
           />
-        ))}
+        ))
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
